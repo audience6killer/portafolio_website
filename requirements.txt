@@ -1,0 +1,2 @@
+Bootstrap_Flask==2.2.0
+flask>=2.2.5
