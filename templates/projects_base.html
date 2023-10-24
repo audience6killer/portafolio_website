@@ -1,0 +1,47 @@
+{% include 'header.html' %}
+<header
+    class="masthead"
+    style="background-color: #0096c7"
+>
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1>{{topic}}' Projects</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                {% for post in all_posts %}
+                <div class="post-preview">
+                    <a href="#!">
+                        <h2 class="post-title">{{ post.title }}</h2>
+                        <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted by
+                        <a href="#">Admin</a>
+                        on {{post.date}}
+                    </p>
+                </div>
+                <hr class="my-4">
+                {% endfor %}
+                <div class="d-flex justify-content-end mb-4">
+                    <a  class="btn btn-primary float-right"
+                        href="{{url_for('add_new_post', cat='cs')}}">
+                        Create a new post
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+{% include 'footer.html' %}
