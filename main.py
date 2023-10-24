@@ -75,6 +75,13 @@ def add_new_post():
         return render_template('create_post.html', topic="Computer Science", form=form)
 
 
+@app.route('/projects/<cat>')
+def show_post(cat):
+    post_id = int(request.args.get('post_id'))
+    post = db.get_or_404(BlogPost, post_id)
+    return render_template('post.html', post=post)
+
+
 
 
 if __name__ == '__main__':
