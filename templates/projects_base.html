@@ -1,13 +1,13 @@
 {% include 'header.html' %}
 <header
     class="masthead"
-    style="background-color: #0096c7"
+    style="background-color: {{color}}"
 >
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="page-heading">
-                    <h1>{{topic}}' Projects</h1>
+                    <h1>{{topic}} Projects</h1>
                 </div>
             </div>
         </div>
@@ -28,13 +28,16 @@
                         Posted by
                         <a href="#">Admin</a>
                         on {{post.date}}
+                        <a href="{{url_for('delete_post', id=post.id)}}">✘</a>
                     </p>
                 </div>
                 <hr class="my-4">
                 {% endfor %}
+
                 <div class="d-flex justify-content-end mb-4">
                     <a  class="btn btn-primary float-right"
-                        href="{{url_for('add_new_post', cat='cs')}}">
+
+                        href="{{url_for('add_new_post', cat=topic)}}">
                         Create a new post
                     </a>
                 </div>
